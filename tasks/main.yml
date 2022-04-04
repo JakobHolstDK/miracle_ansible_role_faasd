@@ -1,0 +1,12 @@
+---
+- name: "miracle_consul | main | Include generic variables."
+  include_vars: "generic.yml"
+
+- name: "miracle_consul | main | Include OS-specific variables."
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: "miracle_consul | main | Installing pre dependencies of xorg-server"
+  include: "{{ ansible_os_family }}.yml"
+
+- name: "miracle_consul | main | faasd"
+  include: "faasd.yml"
